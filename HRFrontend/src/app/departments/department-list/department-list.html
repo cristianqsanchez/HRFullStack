@@ -1,0 +1,24 @@
+<h2>Departamentos</h2>
+<button pButton label="Nuevo Departamento" (click)="create()"></button>
+
+<p-table [value]="departments">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Ubicación</th>
+      <th>Acciones</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-dept>
+    <tr>
+      <td>{{ dept.id }}</td>
+      <td>{{ dept.name }}</td>
+      <td>{{ dept.ubication }}</td>
+      <td>
+        <button pButton label="Editar" (click)="edit(dept)"></button>
+        <button pButton label="Eliminar" (click)="delete(dept.id)"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
