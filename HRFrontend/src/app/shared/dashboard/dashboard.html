@@ -1,0 +1,26 @@
+<h2>Panel de Recursos Humanos</h2>
+
+<div class="p-grid p-justify-center p-mt-4">
+
+  <div class="p-col-12 p-md-4">
+    <p-card header="Empleados" styleClass="card">
+      <p class="count">{{ employeeCount }}</p>
+      <button pButton type="button" label="Ver empleados" icon="pi pi-users" routerLink="/employees" class="p-button-text"></button>
+    </p-card>
+  </div>
+
+  <div class="p-col-12 p-md-4">
+    <p-card header="Departamentos" styleClass="card">
+      <p class="count">{{ departmentCount }}</p>
+      <button pButton type="button" label="Ver departamentos" icon="pi pi-building" routerLink="/departments" class="p-button-text"></button>
+    </p-card>
+  </div>
+
+  <div class="p-col-12 p-md-4">
+    <p-card header="Puestos" styleClass="card">
+      <p class="count">{{ positionCount }}</p>
+      <button pButton type="button" label="Ver puestos" icon="pi pi-briefcase" routerLink="/positions" class="p-button-text"></button>
+    </p-card>
+  </div>
+
+</div>
