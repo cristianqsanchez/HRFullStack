@@ -1,0 +1,101 @@
+<div class="container">
+  <h2>{{ isEditMode ? 'Editar' : 'Nuevo' }} Empleado</h2>
+  <form [formGroup]="form" (ngSubmit)="save()" class="form">
+    <div>
+      <div>
+        <p-floatLabel>
+          <label for="name">Nombre</label>
+          <input pInputText formControlName="name" required />
+        </p-floatLabel>
+        <small [class.visible]="isInvalid('name')">El nombre es obligatorio</small>
+      </div>
+
+      <div>
+        <p-floatLabel>
+          <label for="lastName">Apellido</label>
+          <input pInputText formControlName="lastName" required />
+        </p-floatLabel>
+        <small [class.visible]="isInvalid('lastName')">El apellido es obligatorio</small>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <p-floatLabel>
+          <p-datepicker dateFormat="dd/mm/yy" formControlName="birthDate"></p-datepicker>
+          <label for="birthDate">Fecha de nacimiento</label>
+        </p-floatLabel>
+        <small [class.visible]="isInvalid('birthDate')">La fecha de nacimiento es obligatoria</small>
+      </div>
+
+      <div>
+        <p-floatLabel>
+          <label for="email">Email</label>
+          <input pInputText type="email" formControlName="email" />
+        </p-floatLabel>
+        <small [class.visible]="isInvalid('email')">
+          El email debe tener formato válido
+        </small>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <p-floatLabel>
+          <label for="phone">Teléfono</label>
+          <input pInputText formControlName="phone" />
+        </p-floatLabel>
+        <small [class.visible]="isInvalid('phone')">El teléfono es obligatorio</small>
+      </div>
+
+      <div>
+        <p-floatLabel>
+          <p-datepicker [ngModel]="today" dateFormat="dd/mm/yy" formControlName="hireDate"></p-datepicker>
+          <label for="hireDate">Fecha de contratación</label>
+        </p-floatLabel>
+        <small [class.visible]="isInvalid('hireDate')">La fecha de contratación es obligatoria</small>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <p-floatLabel>
+          <label for="salary">Salario</label>
+          <input pInputText formControlName="salary" />
+        </p-floatLabel>
+        <small [class.visible]="isInvalid('salary')">El salario es obligatorio y debe ser numérico</small>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <p-floatLabel>
+          <label for="departmentId">Departamento</label>
+          <p-select
+            [options]="departments"
+            optionLabel="name"
+            optionValue="id"
+            formControlName="departmentId">
+          </p-select>
+        </p-floatLabel>
+        <small [class.visible]="isInvalid('departmentId')">Seleccione un departamento</small>
+      </div>
+
+    <div>
+      <p-floatLabel>
+        <label for="positionId">Puesto</label>
+        <p-select
+          [options]="positions"
+          optionLabel="title"
+          optionValue="id"
+          formControlName="positionId">
+        </p-select>
+      </p-floatLabel>
+      <small [class.visible]="isInvalid('positionId')">Seleccione un puesto</small>
+    </div>
+
+    </div>
+
+    <button pButton type="submit" label="Guardar"></button>
+  </form>
+</div>
