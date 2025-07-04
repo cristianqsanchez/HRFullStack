@@ -1,0 +1,24 @@
+<h2>Puestos</h2>
+<button pButton label="Nuevo Puesto" (click)="create()"></button>
+
+<p-table [value]="positions">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Título</th>
+      <th>Descripción</th>
+      <th>Acciones</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-pos>
+    <tr>
+      <td>{{ pos.id }}</td>
+      <td>{{ pos.title }}</td>
+      <td>{{ pos.description }}</td>
+      <td>
+        <button pButton label="Editar" (click)="edit(pos)"></button>
+        <button pButton label="Eliminar" (click)="delete(pos.id)"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

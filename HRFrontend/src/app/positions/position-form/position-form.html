@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>{{ isEditMode ? 'Editar' : 'Nuevo' }} Puesto</h2>
+
+  <form [formGroup]="form" (ngSubmit)="save()" class="form">
+    <div>
+      <div>
+        <p-floatLabel>
+          <label>Título</label>
+          <input pInputText formControlName="title" />
+          <small [class.visible]="isInvalid('title')">El titulo es obligatorio</small>
+        </p-floatLabel>
+      </div>
+    </div>
+
+    <p-floatLabel>
+      <label>Descripción</label>
+      <textarea pInputText formControlName="description"></textarea>
+    </p-floatLabel>
+
+    <button pButton label="Guardar" type="submit"></button>
+  </form>
+</div>
