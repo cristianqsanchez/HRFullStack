@@ -1,5 +1,8 @@
 <h2>Empleados</h2>
-<button pButton label="Nuevo Empleado" (click)="create()"></button>
+<button pButton label="Nuevo Empleado" [disabled]="!canCreate()"  (click)="create()"></button>
+<p *ngIf="!canCreate()" class="p-error mt-2">
+  No puedes crear un empleado sin al menos un departamento y un puesto registrados.
+</p>
 
 <p-table [value]="employees">
   <ng-template pTemplate="header">

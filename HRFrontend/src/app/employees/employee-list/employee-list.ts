@@ -4,6 +4,8 @@ import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { Department, DepartmentService } from '../../departments/departments.service';
+import { Position, PositionService } from '../../positions/positions.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -13,14 +15,20 @@ import { ButtonModule } from 'primeng/button';
 })
 export class EmployeeListComponent implements OnInit {
   employees: Employee[] = [];
+  departments: Department[] = [];
+  positions: Position[] = [];
 
   constructor(
     private employeeService: EmployeeService,
+    private departmentService: DepartmentService,
+    private positionService: PositionService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     this.loadEmployees();
+    this.departmentService.getAll().subscribe(deps => this.departments = deps);
+    this.positionService.getAll().subscribe(pos => this.positions = pos);
   }
 
   loadEmployees() {
@@ -41,5 +49,9 @@ export class EmployeeListComponent implements OnInit {
 
   create() {
     this.router.navigate(['/employees/new']);
+  }
+
+  canCreate(): boolean {
+    return this.departments.length > 0 && this.positions.length > 0;
   }
 }

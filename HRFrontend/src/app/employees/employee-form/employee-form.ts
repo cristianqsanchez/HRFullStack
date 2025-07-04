@@ -46,6 +46,10 @@ export class EmployeeFormComponent implements OnInit {
 
   today = new Date()
 
+  get isReady(): boolean {
+    return this.departments.length > 0 && this.positions.length > 0;
+  }
+
   ngOnInit(): void {
     this.form = this.fb.group({
       id: [0],
