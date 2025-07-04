@@ -1,0 +1,60 @@
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  margin: 0 16rem;
+}
+
+.container {
+    display: grid;
+    place-content: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+
+    & > div {
+        display: flex;
+        gap: 2rem;
+    }
+}
+
+small {
+    font-size: smaller;
+    display: block;
+    color: oklch(70.4% 0.191 22.216);
+}
+
+p-select {
+  width: 200px;
+}
+
+p-select .p-select-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  width: 100%;
+}
+
+p-select .p-inputwrapper {
+  width: 100%;
+}
+
+p-select .p-dropdown-panel {
+  min-width: 200px;
+}
+
+small {
+  font-size: 0.75rem;
+  height: 1em;
+  visibility: hidden;
+}
+
+small.visible {
+  visibility: visible;
+}
