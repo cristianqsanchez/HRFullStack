@@ -26,5 +26,12 @@ namespace HRBackend.Data
                 .IsUnique();
         }
 
+        public static void EnsureDbCreated(IApplicationBuilder app)
+        {
+            using var scope = app.ApplicationServices.CreateScope();
+            var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            context.Database.EnsureCreated();
+        }
+
     }
 }

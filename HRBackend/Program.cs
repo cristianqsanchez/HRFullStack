@@ -44,4 +44,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+AppDbContext.EnsureDbCreated(app);
+
 app.Run();
