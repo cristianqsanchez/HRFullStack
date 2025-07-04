@@ -4,17 +4,16 @@
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 USER $APP_UID
 WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
+EXPOSE 5000
 
 
 # Esta fase se usa para compilar el proyecto de servicio
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["HRBackend.csproj", "."]
+COPY HRBackend/HRBackend.csproj .
 RUN dotnet restore "./HRBackend.csproj"
-COPY . .
+COPY HRBackend/. .
 WORKDIR "/src/."
 RUN dotnet build "./HRBackend.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
